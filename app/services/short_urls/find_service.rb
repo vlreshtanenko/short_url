@@ -13,6 +13,10 @@ module ShortUrls
       url
     end
 
+    def create_clicks
+      click = Clicks::CreateService.perform()
+    end
+
     def slug_param
       params[:slug].presence
     end

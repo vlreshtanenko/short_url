@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   root "urls#new"
 
   get '/urls/:slug', to: 'urls#redirect'
+
+  get '/urls/:slug/stats', to: 'clicks#stats'
 end
