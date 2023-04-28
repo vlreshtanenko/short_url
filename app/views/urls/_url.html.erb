@@ -1,0 +1,7 @@
+<div id="<%= dom_id url %>">
+  <p>
+    <strong>Short url:</strong>
+    <!--<a href="<%= url.short_url %>" target="_blanc"><%= url.short_url %></a> -->
+    <%= link_to "http://#{url.short_url}", "http://#{url.short_url}", options={ remote: true } %>
+  </p>
+</div>
