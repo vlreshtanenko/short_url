@@ -10,7 +10,7 @@ module ShortUrls
       slug = request_param.uuid[0..7]
 
       host = request_param.host_with_port
-      short_url = host + '/urls/' + slug
+      short_url = host + '/s/' + slug
 
       attributes = {
         original_url: original_url_param,

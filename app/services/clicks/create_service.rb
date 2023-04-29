@@ -9,22 +9,21 @@ module Clicks
     def create_click
       browser = Browser.new(request_param.env['HTTP_USER_AGENT'])
 
-      operating_system = browser.platform
-      platform = browser.device
-      source = request_param.ip
+      operating_system = browser.platform.name
+      platform = browser.device.name
+      source = request_param.remote_ip
       country = ''
 
-      request_param.env['HTTP_USER_AGENT']
       attributes = {
         platform: platform,
         country: country,
         operating_system: operating_system,
         source: source,
-        url: params[:url],
-        slug: params[:url].slug
+        url_id: params[:url_id],
+        slug: params[:slug]
       }
 
-      # Url.create(attributes)
+      Click.create(attributes)
     end
 
     def original_url_param

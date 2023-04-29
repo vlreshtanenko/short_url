@@ -59,21 +59,22 @@ class UrlsController < ApplicationController
 
   def redirect
     url = ShortUrls::FindService.perform(redirect_params)
-    # clicks_params = {
+    clicks_params = {
+      request: request,
+      url_id: url.id,
+      slug: url.slug
+    }
 
-    # }
-
-    # Clicks::CreateService.perform(clicks_params)
+    Clicks::CreateService.perform(clicks_params)
     redirect_to(url.original_url, allow_other_host: true)
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_url
     @url = Url.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def url_params
     params.require(:url).permit(:original_url, :short_url, :slug, :clicks_count, :unique_clicks_count)
   end

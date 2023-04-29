@@ -1,5 +1,5 @@
 class Click < ApplicationRecord
   searchkick
 
-  has_one :url, optional: true
+  belongs_to :url, optional: true
 end
