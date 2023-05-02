@@ -88,6 +88,7 @@ GEM
     debug (1.7.2)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    diff-lcs (1.5.0)
     elasticsearch (7.17.7)
       elasticsearch-api (= 7.17.7)
       elasticsearch-transport (= 7.17.7)
@@ -97,6 +98,11 @@ GEM
       faraday (~> 1)
       multi_json
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faraday (1.10.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -120,6 +126,7 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
+    geocoder (1.8.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -202,6 +209,23 @@ GEM
     reline (0.3.3)
       io-console (~> 0.5)
     rexml (3.2.5)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.1)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.11)
+      rspec-expectations (~> 3.11)
+      rspec-mocks (~> 3.11)
+      rspec-support (~> 3.11)
+    rspec-support (3.12.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     searchkick (5.2.3)
@@ -255,12 +279,15 @@ DEPENDENCIES
   capybara
   debug
   elasticsearch
+  factory_bot_rails
+  geocoder
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   redis (~> 4.0)
+  rspec-rails (~> 6.0, >= 6.0.1)
   searchkick
   selenium-webdriver
   sprockets-rails

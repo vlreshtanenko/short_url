@@ -12,7 +12,7 @@ module Clicks
       operating_system = browser.platform.name
       platform = browser.device.name
       source = request_param.remote_ip
-      country = ''
+      country = request_param.location.country || 'XX'
 
       attributes = {
         platform: platform,
@@ -20,7 +20,8 @@ module Clicks
         operating_system: operating_system,
         source: source,
         url_id: params[:url_id],
-        slug: params[:slug]
+        slug: params[:slug],
+        date: Date.today
       }
 
       Click.create(attributes)

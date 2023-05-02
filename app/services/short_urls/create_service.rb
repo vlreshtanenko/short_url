@@ -7,15 +7,12 @@ module ShortUrls
     private
 
     def create_short_url
-      slug = request_param.uuid[0..7]
-
-      host = request_param.host_with_port
-      short_url = host + '/s/' + slug
+      short_url = host_param + '/s/' + slug_param
 
       attributes = {
         original_url: original_url_param,
         short_url: short_url,
-        slug: slug
+        slug: slug_param
       }
 
       Url.create(attributes)
@@ -25,8 +22,12 @@ module ShortUrls
       params[:original_url].presence
     end
 
-    def request_param
-      params[:request].presence
+    def host_param
+      params[:host].presence
+    end
+
+    def slug_param
+      params[:slug].presence
     end
   end
 end

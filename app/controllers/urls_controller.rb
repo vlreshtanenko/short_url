@@ -21,7 +21,12 @@ class UrlsController < ApplicationController
 
   # POST /urls or /urls.json
   def create
-    @url = ShortUrls::CreateService.perform(url_params.merge(request: request))
+    service_params = url_params.merge({
+      host: request.host_with_port,
+      slug: request.uuid[0..7]
+    })
+
+    @url = ShortUrls::CreateService.perform(service_params)
 
     respond_to do |format|
       if @url.save

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_28_141132) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_02_134003) do
   create_table "clicks", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "platform"
     t.string "country"
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_28_141132) do
     t.datetime "updated_at", null: false
     t.bigint "url_id"
     t.string "slug"
+    t.string "date"
     t.index ["url_id"], name: "index_clicks_on_url_id"
   end
 

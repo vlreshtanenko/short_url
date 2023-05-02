@@ -7,7 +7,8 @@ module ShortUrls
     private
 
     def find_short_url
-      url = Url.find_by(slug: slug_param)
+      Url.searchkick_index.refresh
+      url = Url.search(slug_param, limit: 1).first
     end
 
     def slug_param
