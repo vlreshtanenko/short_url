@@ -3,10 +3,41 @@
   <table>
     <% @by_oses.each do |click| %>
       <tr>
-        <th rowspan='<%= click.values.flatten.count %>' > <%= click.keys.first %> </th>
-        <% click.values.first.each do |info| %>
-          <td><%= info.platform %></td>
-        <% end %>
+        <th> <%= click.keys.first %> </th>
+        <td> <%= click.values.first.count %> </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div>
+  <h2>По платформам: </h2>
+  <table>
+    <% @by_platforms.each do |click| %>
+      <tr>
+        <th> <%= click.keys.first %> </th>
+        <td> <%= click.values.first.count %> </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div>
+  <h2>По странам: </h2>
+  <table>
+    <% @by_countries.each do |click| %>
+      <tr>
+        <th> <%= click.keys.first %> </th>
+        <td> <%= click.values.first.count %> </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div>
+  <h2>По датам: </h2>
+  <table>
+    <% @by_dates.each do |click| %>
+      <tr>
+        <th> <%= click.keys.first %> </th>
+        <td> <%= click.values.first.count %> </td>
       </tr>
     <% end %>
   </table>

@@ -6,7 +6,6 @@ class ClicksController < ApplicationController
     @by_platforms = stats[:by_platforms]
     @by_countries = stats[:by_countries]
     @by_dates = stats[:by_dates]
-    # render_response(stats[:by_oses].first.values.first)
   end
 
   private

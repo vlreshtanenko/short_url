@@ -16,22 +16,18 @@ module Clicks
       uniq_dates = clicks.to_a.map(&:date).uniq
 
       clicks_by_oses = uniq_oses.map do |os|
-        Click.reindex
         { "#{os}": Click.search(os).to_a }
       end
 
       clicks_by_platforms = uniq_platforms.map do |platform|
-        Click.reindex
         { "#{platform}": Click.search(platform).to_a }
       end
 
       clicks_by_countries = uniq_countries.map do |country|
-        Click.reindex
         { "#{country}": Click.search(country).to_a }
       end
 
       clicks_by_dates = uniq_dates.map do |date|
-        Click.reindex
         { "#{date}": Click.search(date).to_a }
       end
 
