@@ -1,10 +1,10 @@
 <div>
   <h2>По операционным системам: </h2>
   <table>
-    <% @by_oses.each do |click| %>
+   <% @by_oses.keys.each do |os_key| %>
       <tr>
-        <th> <%= click.keys.first %> </th>
-        <td> <%= click.values.first.count %> </td>
+        <th> <%= os_key %> </th>
+        <td> <%= @by_oses[os_key].count %> </td>
       </tr>
     <% end %>
   </table>
@@ -12,10 +12,10 @@
 <div>
   <h2>По платформам: </h2>
   <table>
-    <% @by_platforms.each do |click| %>
+    <% @by_platforms.keys.each do |key| %>
       <tr>
-        <th> <%= click.keys.first %> </th>
-        <td> <%= click.values.first.count %> </td>
+        <th> <%= key %> </th>
+        <td> <%= @by_platforms[key].count %> </td>
       </tr>
     <% end %>
   </table>
@@ -23,10 +23,10 @@
 <div>
   <h2>По странам: </h2>
   <table>
-    <% @by_countries.each do |click| %>
+    <% @by_countries.keys.each do |key| %>
       <tr>
-        <th> <%= click.keys.first %> </th>
-        <td> <%= click.values.first.count %> </td>
+        <th> <%= key %> </th>
+        <td> <%= @by_countries[key].count %> </td>
       </tr>
     <% end %>
   </table>
@@ -34,10 +34,10 @@
 <div>
   <h2>По датам: </h2>
   <table>
-    <% @by_dates.each do |click| %>
+    <% @by_dates.keys.each do |key| %>
       <tr>
-        <th> <%= click.keys.first %> </th>
-        <td> <%= click.values.first.count %> </td>
+        <th> <%= key %> </th>
+        <td> <%= @by_dates[key].count %> </td>
       </tr>
     <% end %>
   </table>

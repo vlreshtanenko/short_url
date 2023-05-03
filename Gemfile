@@ -54,6 +54,7 @@ gem "browser"
 gem "geocoder"
 gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
 gem 'factory_bot_rails'
+gem 'dotenv-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

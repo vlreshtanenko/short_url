@@ -10,32 +10,25 @@ module Clicks
       Click.reindex
       clicks = Click.search(slug_param).to_a
 
-      uniq_oses = clicks.to_a.map(&:operating_system).uniq
-      uniq_platforms = clicks.to_a.map(&:platform).uniq
-      uniq_countries = clicks.to_a.map(&:country).uniq
-      uniq_dates = clicks.to_a.map(&:date).uniq
+      lambda_array_by_key = -> (h, k) {h[k] = []}
 
-      clicks_by_oses = uniq_oses.map do |os|
-        { "#{os}": Click.search(os).to_a }
-      end
+      by_oses = Hash.new(&lambda_array_by_key)
+      by_platforms = Hash.new(&lambda_array_by_key)
+      by_countries = Hash.new(&lambda_array_by_key)
+      by_dates = Hash.new(&lambda_array_by_key)
 
-      clicks_by_platforms = uniq_platforms.map do |platform|
-        { "#{platform}": Click.search(platform).to_a }
-      end
-
-      clicks_by_countries = uniq_countries.map do |country|
-        { "#{country}": Click.search(country).to_a }
-      end
-
-      clicks_by_dates = uniq_dates.map do |date|
-        { "#{date}": Click.search(date).to_a }
+      clicks.each do |click|
+        by_oses[click.operating_system] << click
+        by_platforms[click.platform] << click
+        by_countries[click.country] << click
+        by_dates[click.date] << click
       end
 
       {
-        by_oses: clicks_by_oses,
-        by_platforms: clicks_by_platforms,
-        by_countries: clicks_by_countries,
-        by_dates: clicks_by_dates
+        by_oses: by_oses.transform_keys(&:to_s),
+        by_platforms: by_platforms.transform_keys(&:to_s),
+        by_countries: by_countries.transform_keys(&:to_s),
+        by_dates: by_dates.transform_keys(&:to_s)
       }
     end
 

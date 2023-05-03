@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_02_134003) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_03_112324) do
   create_table "clicks", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "platform"
     t.string "country"
@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_134003) do
     t.datetime "updated_at", null: false
     t.bigint "url_id"
     t.string "slug"
-    t.string "date"
+    t.date "date"
     t.index ["url_id"], name: "index_clicks_on_url_id"
   end
 
@@ -28,8 +28,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_134003) do
     t.string "original_url"
     t.string "short_url"
     t.string "slug"
-    t.integer "clicks_count", default: 0, null: false
-    t.integer "unique_clicks_count", default: 0, null: false
+    t.bigint "clicks_count", default: 0, null: false
+    t.bigint "unique_clicks_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["original_url"], name: "index_urls_on_original_url", unique: true
